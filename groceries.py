@@ -31,6 +31,14 @@ print("--------------")
 print("THERE ARE " + str(products_count) + " PRODUCTS:")
 print("--------------")
 
+
+def sort_by_name(any_product):
+    return any_product["name"]
+
+sorted_products = sorted(products, key=sort_by_name)
+
+
+
 # {
 #   "id":1, 
 #   "name": "Chocolate Sandwich Cookies", 
@@ -39,7 +47,7 @@ print("--------------")
 #   "price": 3.50
 #   },
 
-for p in products:
+for p in sorted_products:
     # price_usd = # p["price"] # "$4.99"
     price_usd = "(${0:.2f})".format(p["price"])
     print(" + " + p["name"] + price_usd)
