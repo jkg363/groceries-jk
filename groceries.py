@@ -66,7 +66,7 @@ sorted_products = sorted(products, key=sort_by_name)
 for p in sorted_products:
     # price_usd = # p["price"] # "$4.99"
     price_usd = "(${0:.2f})".format(p["price"])
-    print(" + " + p["name"] + price_usd)
+    print(" + " + p["name"] + " " + price_usd)
 
 # 
 # DEPARTMENTS (PART 2)
@@ -103,4 +103,8 @@ print("--------------")
 unique_departments.sort()
 
 for d in unique_departments:
-    print(d.title())
+    matching_products = [p for p in products if p["department"] == d]
+    matching_products_count = len(matching_products)
+    print(" + " + d.title() + " (" + str(matching_products_count) + " products)")
+
+
